@@ -2,10 +2,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate
 from django.views.generic import CreateView
 from django.contrib.auth.decorators import login_required
-from django.contrib import messages
 from .forms import CustomUserCreationForm, CustomUserChangeForm
-from pubg_account.models import PubgAccount
+from pubg_account.models import DonateAccount
 from .models import *
+from .forms import *
 
 @login_required(login_url='/auth/login/')
 def userProfileEditView(request):
@@ -22,7 +22,7 @@ def userProfileEditView(request):
 
 def userProfileView(request, username):
 	user = get_object_or_404(CustomUser, username=username)
-	posts_count = PubgAccount.objects.filter(author=user).count()
+	posts_count = DonateAccount.objects.filter(author=user).count()
 
 	return render(request, 'account/profile.html', {'user_model': user, 'posts_count': posts_count})
 

@@ -6,3 +6,4 @@ django-js-asset==2.0.0
 Pillow==9.4.0
 sqlparse==0.4.3
 tzdata==2022.7
+django-jazzmin==2.6.0

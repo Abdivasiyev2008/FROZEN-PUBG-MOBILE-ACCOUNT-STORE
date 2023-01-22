@@ -29,6 +29,8 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('pubg-accounts/',include('pubg_account.urls')),
     path('',include('pages.urls')),
+    path('captcha/', include('captcha.urls')),
+    
 ] + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
 handler404 = 'pages.views.error_404'
 
