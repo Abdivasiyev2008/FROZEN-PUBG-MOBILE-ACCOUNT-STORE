@@ -97,8 +97,16 @@
         textarea {
             position: relative;
             top: 30px;
-            width: 50rem;
+            width: 100%;
             height: 30px;
+        }
+        
+        .comment-send {
+            position: relative;
+            left: 65px;
+            top: 30px; 
+            height: 50px;
+            width: 100px;
         }
 
         .media {
@@ -154,6 +162,7 @@
             font-size: 15px;
             margin-right: 10px;
         }
+
     </style>
 
     <div id="container" style="height: 250%; width: 100%; position: relative; top: -80px;">
@@ -271,8 +280,7 @@
 
                                     <div class="form-group">
                                         {{ comment_form }} <br>
-                                        <button class="btn btn-info" type="submit"
-                                            style="position: relative; left: 900px; top: -20px; height: 50px; width: 100px;">
+                                        <button class="btn btn-info comment-send" type="submit">
                                             Jo'natish</button>
                                     </div>
                                 </div>

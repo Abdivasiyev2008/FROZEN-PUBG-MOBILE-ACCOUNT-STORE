@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'jazzmin',
     'django.contrib.admin',
-    'captcha',
 
     # My Apps
     'accounts',
