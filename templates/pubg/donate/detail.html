@@ -20,302 +20,112 @@
 </head>
 
 <body>
-    <style>
-        .content-item {
-            padding: 30px 0;
-            background-color: #FFFFFF;
+    <style type="text/css">
+        a {
+            color: #000;
+            text-decoration: none;
         }
-
-        .content-item.grey {
-            background-color: #F0F0F0;
-            padding: 50px 0;
-            height: 100%;
-        }
-
-        .content-item h2 {
-            font-weight: 700;
-            font-size: 35px;
-            line-height: 45px;
-            text-transform: uppercase;
-            margin: 20px 0;
-        }
-
-        .content-item h3 {
-            font-weight: 400;
-            font-size: 20px;
-            color: #555555;
-            margin: 10px 0 15px;
-            padding: 0;
-        }
-
-        .content-headline {
-            height: 1px;
-            text-align: center;
-            margin: 20px 0 70px;
-        }
-
-        .content-headline h2 {
-            background-color: #FFFFFF;
-            display: inline-block;
-            margin: -20px auto 0;
-            padding: 0 20px;
-        }
-
-        .grey .content-headline h2 {
-            background-color: #F0F0F0;
-        }
-
-        .content-headline h3 {
-            font-size: 14px;
-            color: #AAAAAA;
-            display: block;
-        }
-
-
-        #comments {
-            box-shadow: 0 -1px 6px 1px rgba(0, 0, 0, 0.1);
-            background-color: #FFFFFF;
-        }
-
-        form {
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            margin-top: 7px;
-        }
-
-        form fieldset {
-            clear: both;
-        }
-
-        .img-responsive {
-            float: left;
-            padding-top: 20px;
-        }
-
-        textarea {
-            position: relative;
-            top: 30px;
-            width: 100%;
-            height: 30px;
-        }
-        
-        .comment-send {
-            position: relative;
-            left: 65px;
-            top: 30px; 
-            height: 50px;
-            width: 100px;
-        }
-
-        .media {
-            border-top: 1px dashed #DDDDDD;
-            padding: 20px 0;
-            margin: 0;
-        }
-
-        .media>.pull-left {
-            margin-right: 20px;
-        }
-
-        .media img {
-            max-width: 100px;
-        }
-
-        .media h4 {
-            margin: 0 0 10px;
-        }
-
-        .media h4 span {
-            font-size: 14px;
-            float: right;
-            color: #999999;
-        }
-
-        .media p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        .media-detail {
-            margin: 0;
-        }
-
-        .media-detail li {
-            color: #AAAAAA;
-            font-size: 12px;
-            padding-right: 10px;
-            font-weight: 600;
-        }
-
-        .media-detail a:hover {
-            text-decoration: underline;
-        }
-
-        .media-detail li:last-child {
-            padding-right: 0;
-        }
-
-        .media-detail li i {
-            color: #666666;
-            font-size: 15px;
-            margin-right: 10px;
-        }
-
     </style>
-
-    <div id="container" style="height: 250%; width: 100%; position: relative; top: -80px;">
-
-        <!-- Start	Product details -->
-        <div class="product-details">
-            <p class="information">
-                <b>Akkaunt ID: </b> {{ object.pubg_id }} <br>
-                <b>Sotib Olingan RP: </b> {{ object.rp }} ta <br>
-                <b>X Kostumlar: </b> {{ object.xsuite }} ta <br>
-                <b>Mifik Kiyimlar: </b> {{ object.mifik_kiyim }} ta <br>
-                <b>Qurollarga Skin: </b> {{ object.avtomat }} ta <br>
-                <b>Kill Chat Qurollar: </b> {{ object.kill_chat }} ta <br>
-                <b>Granda Skinlar: </b> {{ object.granada }} ta <br>
-                <b>Sumkaga Skinlar: </b> {{ object.sumka }} ta <br>
-                <b>Kaskaga Skinlar: </b> {{ object.kaska }} ta <br>
-                <b>Parachute Skinlar: </b> {{ object.parachute }} ta <br>
-                <b>Mashina Skinlar: </b> {{ object.mashina }} ta <br>
-                <b>Samalyot Skinlar: </b> {{ object.samalyot }} ta <br>
-                <b>Vertalyot Skinlar: </b> {{ object.vertalyot }} ta <br>
-                <b>Personajlar: </b> {{ object.personaj }} ta <br>
-                <b>Emojilar </b>: {{ object.emoji }} ta <br>
-                <b>Titullar </b>: {{ object.titul }} ta <br>
-                <b>Hayvonlar </b>: {{ object.hayvon }} ta <br>
-                <b>Akkaunt Narxi </b>: {{ object.narxi | floatformat:3 }} UZS <br>
-                <b>Joyladi:</b> {{ object.author }}
-            </p>
-            <br><br><br><br><br><br><br><br>
-        </div>
-        <div class="product-image">
-            <br><br><br>
-            <video controls style="width: 100%;">
-                <source src="{{ object.video.url }}">
-            </video>
-        </div>
-        <!--  End product image  -->
-        <div class="control">
-            <br><br><br><br>
-
-            {% if object.telegram %}
-            <button class="btn" style="width: 100px; height: 40px;">
-                <span>
-                    <a href="https://t.me/{{ object.telegram }}/" target="_blank"
-                        style="font-size: 20px; text-decoration: none; color: rgb(247, 247, 247);">
-                        <li class="fa fa-telegram" style="font-size: 15px;"></li> Telegram
-                    </a>
-                </span>
-            </button>
-            {% endif %}
-
-            {% if object.telegram %}
-            <button class="btn" style="width: 100px; height: 40px;">
-                <span>
-                    <a href="https://instagram.com/{{ object.instagram }}/" target="_blank"
-                        style="text-decoration: none; color: rgb(247, 247, 247); font-size: 20px;">
-                        <li class="fa fa-instagram" style="font-size: 15px;"></li> Instagram
-                    </a>
-                </span>
-            </button>
-            {% endif %}
-
-            <button class="btn" style="width: 100px; height: 40px;">
-                <span>
-                    <a href="{% url 'pubg-account-list' %}"
-                        style="text-decoration: none; color: rgb(247, 247, 247); font-size: 20px;">
-                        <li class="fa fa-back"></li> Ortga Qaytish
-                    </a>
-                </span>
-            </button>
-
-            <br><br>
-
-            {% if user.is_authenticated and object.author == user  %}
-            <button class="btn" style="width: 100px; height: 40px;">
-                <span>
-                    <a href="{% url 'pubg-account-delete' object.pk %}"
-                        style="text-decoration: none; color: rgb(247, 247, 247); font-size: 20px;">
-                        O'chirish
-                    </a>
-                </span>
-            </button>
-            <button class="btn" style="width: 100px; height: 40px;">
-                <span>
-                    <a href="{% url 'pubg-account-edit' object.pk %}"
-                        style="text-decoration: none; color: rgb(247, 247, 247); font-size: 20px;">
-                        Tahrirlash
-                    </a>
-                </span>
-            </button>
-            {% endif %}
-        </div>
-    </div>
-
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-
-    <section class="content-item" id="comments">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8">
-                   {% if user.is_authenticated %}
-                    <form method="POST" style="position: relative; right: 20px; color: #fff;">{% csrf_token %}
-                        <fieldset>
-                            <div class="row">
-                                <div class="col-sm-3 col-lg-2 hidden-xs">
-                                    {% if profile_pic %}
-                                        <img class="img-responsive" src="{{ user.profile_pic.url }}" alt=""
-                                            style="max-width:100px;">
-                                    {% else %}
-                                        <img class="img-responsive" src="{% static 'images/avatar.png' %}" alt=""
-                                        style="max-width:100px;">
-
-                                    {% endif %}
-                                </div>
-                                <div class="form-group col-xs-12 col-sm-9 col-lg-10">
-
-                                    <div class="form-group">
-                                        {{ comment_form }} <br>
-                                        <button class="btn btn-info comment-send" type="submit">
-                                            Jo'natish</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </form>
-                   {% endif %}
-
-                    <h3>Izohlar</h3>
-
-                    <!-- COMMENT 1 - START -->
-
-                    {% for comment in comments %}
-                        <div class="media">
-                            {% if comment.author.profile_pic %}
-                            <a class="pull-left" href="{% url 'profile' comment.author %}"><img class="media-object"
-                                src="{{ comment.author.profile_pic.url }}" alt=""></a>
-                            {% else %}
-                            <a class="pull-left" href="{% url 'profile' comment.author %}"><img class="media-object"
-                                src="{% static 'images/avatar.png' %}" alt=""></a>
-                            {% endif %}
-                            <div class="media-body">
-                                <h4 class="media-heading">{{ comment.author }}</h4>
-                                <p>{{ comment.content }}</p>
-                                <ul class="list-unstyled list-inline media-detail pull-left"">
-                                        <li><i class=" fa fa-calendar"></i>{{ comment.date_posted }}</li>
-                                </ul>
-                            </div>
-                        </div>
-                    {% endfor %}
-                    <!-- COMMENT 1 - END -->
-                </div>
+    <center>
+        <div class="card mb-3">
+          <div class="row g-0">
+            <div class="col-md-4">
+                <video controls style="width: 100%; height: 105vh;">
+                    <source src="{{ object.video.url }}">
+                </video>
             </div>
-        </div>
-    </section>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Narxi: {{ object.narxi | floatformat:3 }} UZS</h5> <br><br>
+                <p class="card-text">
+                    <b>Akkaunt ID: </b> {{ object.pubg_id }} <br>
+                    <b>Sotib Olingan RP: </b> {{ object.rp }} ta <br>
+                    <b>X Kostumlar: </b> {{ object.xsuite }} ta <br>
+                    <b>Mifik Kiyimlar: </b> {{ object.mifik_kiyim }} ta <br>
+                    <b>Qurollarga Skin: </b> {{ object.avtomat }} ta <br>
+                    <b>Kill Chat Qurollar: </b> {{ object.kill_chat }} ta <br>
+                    <b>Granda Skinlar: </b> {{ object.granada }} ta <br>
+                    <b>Sumkaga Skinlar: </b> {{ object.sumka }} ta <br>
+                    <b>Kaskaga Skinlar: </b> {{ object.kaska }} ta <br>
+                    <b>Parachute Skinlar: </b> {{ object.parachute }} ta <br>
+                    <b>Mashina Skinlar: </b> {{ object.mashina }} ta <br>
+                    <b>Samalyot Skinlar: </b> {{ object.samalyot }} ta <br>
+                    <b>Vertalyot Skinlar: </b> {{ object.vertalyot }} ta <br>
+                    <b>Personajlar: </b> {{ object.personaj }} ta <br>
+                    <b>Emojilar </b>: {{ object.emoji }} ta <br>
+                    <b>Titullar </b>: {{ object.titul }} ta <br>
+                    <b>Hayvonlar </b>: {{ object.hayvon }} ta <br>
 
+                    <b>Joyladi:</b> {{ object.author }}
+                    {% if object.telegram %}
+                        <a href="https://t.me/{{ object.telegram }}/" target="_blank">
+
+                            <li class="fa fa-telegram" style="font-size: 15px;"></li> Telegram
+                        </a>
+                    {% endif %}
+
+                    {% if object.telegram %}
+                        <a href="https://instagram.com/{{ object.instagram }}/" target="_blank">
+                            <li class="fa fa-instagram" style="font-size: 15px;"></li> Instagram
+                        </a>
+                    {% endif %}
+                </p>
+                <p class="card-text"><small class="text-muted">{{ object.date }}</small></p>
+
+                <a href="{% url 'pubg-account-list' %}">Orqaga</a> <br>
+
+                {% if user.is_authenticated and object.author == user  %}
+                    <a href="{% url 'pubg-account-delete' object.pk %}">O'chirish</a>
+                    <a href="{% url 'pubg-account-edit' object.pk %}">Tahrirlash</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Write Comment -->
+
+        {% if user.is_authenticated %}
+            <form method="POST" style="position: relative; right: 20px; color: #fff;">{% csrf_token %}
+               
+                {% if profile_pic %}
+                <img class="img-responsive" src="{{ user.profile_pic.url }}" alt="" style="max-width:100px;">
+                            
+                {% else %}
+                    <img class="img-responsive" src="{% static 'images/avatar.png' %}" alt="" style="max-width:100px;">
+                {% endif %}        
+                
+                {{ comment_form }} <br>
+                            
+                <button class="btn btn-info comment-send" type="submit">Jo'natish</button>
+            </form>
+        {% endif %}
+
+        <br><br>
+
+        <!-- Write Comment End -->
+
+        <!-- COMMENT START -->
+        {% for comment in comments %}
+            <div class="card">
+              <div class="card-body">
+                <a href="{% url 'profile' comment.author %}">
+                    <h4>
+                        {% if comment.author.profile_pic %}
+                            <a class="pull-left" href="{% url 'profile' comment.author %}"><img class="media-object" src="{{ comment.author.profile_pic.url }}" style="width: 50px; height: 50px; display: inline-block; float: left;"></a>
+                        {% else %}
+                            <a class="pull-left" href="{% url 'profile' comment.author %}"><img class="media-object" src="{% static 'images/avatar.png' %}" alt=""></a>
+                        {% endif %}
+
+                        <a href="{% url 'profile' comment.author %}"><b>{{ comment.author }}</b></a>
+                    </h4>
+                <p class="card-text">{{ comment.content }} <br> {{ comment.date_posted }}</p>
+                </a>
+              </div>
+            </div>
+        {% endfor %}
+        <!-- COMMENT END -->
+    </center>
 </body>
+
 {% endblock content %}

@@ -22,7 +22,7 @@ def userProfileEditView(request):
 
 def userProfileView(request, username):
 	user = get_object_or_404(CustomUser, username=username)
-	posts_count = DonateAccount.objects.filter(author=user).count()
+	posts_count = DonateAccount.objects.filter(author=user).all()
 
 	return render(request, 'account/profile.html', {'user_model': user, 'posts_count': posts_count})
 

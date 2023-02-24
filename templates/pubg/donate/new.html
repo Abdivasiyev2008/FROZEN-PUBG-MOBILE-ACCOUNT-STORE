@@ -28,7 +28,7 @@
         <h1>Yangi E'lon joylash</h1>
         <form method="post" enctype="multipart/form-data">{% csrf_token %}
             {{ form.media }}
-            {{ form.as_p }}
+            {{ form | crispy }}
             <button class="btn btn-success ml-2" type="submit">Saqlash</button>
         </form>
     </center>
